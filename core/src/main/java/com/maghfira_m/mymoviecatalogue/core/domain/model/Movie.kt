@@ -2,6 +2,7 @@ package com.maghfira_m.mymoviecatalogue.core.domain.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import java.util.*
 
 @Parcelize
 data class Movie(
@@ -10,7 +11,6 @@ data class Movie(
     val tagLine: String? = null,
     val overview: String? = null,
     val releaseDate: String? = null,
-    val runtime: String? = null,
     val voteAverage: Double? = null,
     val posterPath: String? = null
 ) : Parcelable

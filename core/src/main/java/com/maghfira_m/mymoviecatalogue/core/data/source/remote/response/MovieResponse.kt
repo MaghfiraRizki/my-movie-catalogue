@@ -19,15 +19,9 @@ data class MovieResponse(
     @field:SerializedName("release_date")
     val releaseDate: String? = null,
 
-    @field:SerializedName("runtime")
-    val runtime: String? = null,
-
     @field:SerializedName("vote_average")
     val voteAverage: Double? = null,
 
     @field:SerializedName("poster_path")
-    val posterPath: String? = null,
-
-    @field:SerializedName("genres")
-    val genres: ArrayList<Genre>
+    val posterPath: String? = null
 )

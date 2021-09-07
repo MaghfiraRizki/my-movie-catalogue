@@ -10,9 +10,9 @@ interface MovieUseCase {
 
     fun getFavoriteMovie(): Flow<List<Movie>>
 
-    fun insertFavoriteMovie(movie: Movie)
+    suspend fun insertFavoriteMovie(movie: Movie)
 
     fun deleteFavoriteMovie(movie: Movie)
 
-    fun checkFavoriteMovie(movieId: String)
+    fun checkFavoriteMovie(movieId: String): Flow<Int>
 }

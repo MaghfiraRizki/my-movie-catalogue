@@ -24,9 +24,6 @@ data class MovieEntity(
     @ColumnInfo(name = "release_date")
     val releaseDate: String? = null,
 
-    @ColumnInfo(name = "runtime")
-    val runtime: String? = null,
-
     @ColumnInfo(name = "vote_average")
     val voteAverage: Double? = null,
 
