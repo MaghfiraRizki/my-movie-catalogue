@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import com.maghfira_m.mymoviecatalogue.core.data.source.remote.network.ApiResponse
 import com.maghfira_m.mymoviecatalogue.core.data.source.remote.network.ApiService
 import com.maghfira_m.mymoviecatalogue.core.data.source.remote.response.MovieResponse
-import com.maghfira_m.mymoviecatalogue.core.utils.Config
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -29,16 +28,5 @@ class RemoteDataSource(private val apiService: ApiService) {
                 emit(ApiResponse.Error(e.toString()))
             }
         }.flowOn(Dispatchers.IO)
-    }
-
-    fun getDetailMovie(id: String): Flow<ApiResponse<MovieResponse>> {
-        return flow {
-            try {
-                val response = apiService.getDetailMovie(id, Config.API_KEY)
-                emit(ApiResponse.Success(response))
-            } catch (e: Exception) {
-                emit(ApiResponse.Error(e.toString()))
-            }
-        }
     }
 }

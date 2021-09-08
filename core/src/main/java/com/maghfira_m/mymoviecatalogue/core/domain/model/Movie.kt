@@ -2,7 +2,6 @@ package com.maghfira_m.mymoviecatalogue.core.domain.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import java.util.*
 
 @Parcelize
 data class Movie(

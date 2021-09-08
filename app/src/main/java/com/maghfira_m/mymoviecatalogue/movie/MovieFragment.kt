@@ -11,14 +11,8 @@ import com.maghfira_m.mymoviecatalogue.core.data.Resource
 import com.maghfira_m.mymoviecatalogue.core.ui.MovieAdapter
 import com.maghfira_m.mymoviecatalogue.databinding.FragmentMovieBinding
 import com.maghfira_m.mymoviecatalogue.detail.DetailMovieActivity
-import kotlinx.android.synthetic.main.fragment_movie.view.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MovieFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MovieFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private val movieViewModel: MovieViewModel by viewModel()

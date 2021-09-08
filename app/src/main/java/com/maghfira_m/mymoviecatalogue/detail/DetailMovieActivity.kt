@@ -3,6 +3,7 @@ package com.maghfira_m.mymoviecatalogue.detail
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.maghfira_m.mymoviecatalogue.R
@@ -64,6 +65,36 @@ class DetailMovieActivity : AppCompatActivity() {
             binding.content.tvRating.text =
                 resources.getString(R.string.voteAverage, movie?.voteAverage.toString())
             binding.content.tvOverview.text = movie?.overview
+
+            val movieId = movie?.movieId
+            if (movieId != null) {
+                detailMovieViewModel.checkFavoriteMovie(movieId).observe(this, Observer { count ->
+                    if (count == 0) {
+                        setFavorite(false, movie)
+                    } else {
+                        setFavorite(true, movie)
+                    }
+                })
+            }
+        }
+    }
+
+    private fun setFavorite(statusFavorite: Boolean, movie: Movie) {
+        if (statusFavorite) {
+            binding.fab.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite))
+            binding.fab.setOnClickListener {
+                detailMovieViewModel.deleteFavoriteMovie(movie)
+            }
+        } else {
+            binding.fab.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorite_border
+                )
+            )
+            binding.fab.setOnClickListener {
+                detailMovieViewModel.insertFavoriteMovie(movie)
+            }
         }
     }
 }

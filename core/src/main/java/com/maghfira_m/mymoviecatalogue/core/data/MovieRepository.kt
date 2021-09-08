@@ -34,10 +34,12 @@ class MovieRepository(
         localDataSource.insertFavoriteMovie(movieEntity)
     }
 
-    override fun deleteFavoriteMovie(movie: Movie) {
-        TODO("Not yet implemented")
+    override suspend fun deleteFavoriteMovie(movie: Movie) {
+        val movieEntity = DataMapper.mapDomainToEntity(movie)
+        localDataSource.deleteFavoriteMovie(movieEntity)
     }
 
-    override fun checkFavoriteMovie(movieId: String): Flow<Int> = localDataSource.checkFavoriteMovie(movieId)
+    override fun checkFavoriteMovie(movieId: String): Flow<Int> =
+        localDataSource.checkFavoriteMovie(movieId)
 
 }

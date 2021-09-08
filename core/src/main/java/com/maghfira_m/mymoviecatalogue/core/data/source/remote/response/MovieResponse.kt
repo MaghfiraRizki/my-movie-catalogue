@@ -1,7 +1,6 @@
 package com.maghfira_m.mymoviecatalogue.core.data.source.remote.response
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
 
 data class MovieResponse(
     @field:SerializedName("id")

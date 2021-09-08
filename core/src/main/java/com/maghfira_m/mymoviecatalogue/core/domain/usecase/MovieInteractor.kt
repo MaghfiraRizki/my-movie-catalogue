@@ -8,9 +8,11 @@ class MovieInteractor(private val movieRepository: IMovieRepository) : MovieUseC
 
     override fun getFavoriteMovie() = movieRepository.getFavoriteMovie()
 
-    override suspend fun insertFavoriteMovie(movie: Movie) = movieRepository.insertFavoriteMovie(movie)
+    override suspend fun insertFavoriteMovie(movie: Movie) =
+        movieRepository.insertFavoriteMovie(movie)
 
-    override fun deleteFavoriteMovie(movie: Movie) = movieRepository.deleteFavoriteMovie(movie)
+    override suspend fun deleteFavoriteMovie(movie: Movie) =
+        movieRepository.deleteFavoriteMovie(movie)
 
     override fun checkFavoriteMovie(movieId: String) = movieRepository.checkFavoriteMovie(movieId)
 }

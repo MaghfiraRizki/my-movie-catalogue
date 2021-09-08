@@ -12,7 +12,7 @@ interface IMovieRepository {
 
     suspend fun insertFavoriteMovie(movie: Movie)
 
-    fun deleteFavoriteMovie(movie: Movie)
+    suspend fun deleteFavoriteMovie(movie: Movie)
 
     fun checkFavoriteMovie(movieId: String): Flow<Int>
 }
