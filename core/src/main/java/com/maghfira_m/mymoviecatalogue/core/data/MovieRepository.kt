@@ -5,7 +5,6 @@ import com.maghfira_m.mymoviecatalogue.core.data.source.remote.RemoteDataSource
 import com.maghfira_m.mymoviecatalogue.core.data.source.remote.network.ApiResponse
 import com.maghfira_m.mymoviecatalogue.core.domain.model.Movie
 import com.maghfira_m.mymoviecatalogue.core.domain.repository.IMovieRepository
-import com.maghfira_m.mymoviecatalogue.core.utils.AppExecutors
 import com.maghfira_m.mymoviecatalogue.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -14,8 +13,7 @@ import kotlinx.coroutines.flow.map
 
 class MovieRepository(
     private val remoteDataSource: RemoteDataSource,
-    private val localDataSource: LocalDataSource,
-    private val appExecutors: AppExecutors
+    private val localDataSource: LocalDataSource
 ) : IMovieRepository {
     override fun getAllMovies(): Flow<Resource<List<Movie>>> = flow {
         emit(Resource.Loading())

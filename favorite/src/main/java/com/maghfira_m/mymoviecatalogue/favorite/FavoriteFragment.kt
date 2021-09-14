@@ -13,11 +13,6 @@ import com.maghfira_m.mymoviecatalogue.favorite.databinding.FragmentFavoriteBind
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FavoriteFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FavoriteFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private val favoriteViewModel: FavoriteViewModel by viewModel()
@@ -28,7 +23,7 @@ class FavoriteFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root

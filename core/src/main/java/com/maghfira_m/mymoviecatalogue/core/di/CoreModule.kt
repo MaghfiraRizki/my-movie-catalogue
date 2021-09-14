@@ -7,7 +7,6 @@ import com.maghfira_m.mymoviecatalogue.core.data.source.local.room.MovieDatabase
 import com.maghfira_m.mymoviecatalogue.core.data.source.remote.RemoteDataSource
 import com.maghfira_m.mymoviecatalogue.core.data.source.remote.network.ApiService
 import com.maghfira_m.mymoviecatalogue.core.domain.repository.IMovieRepository
-import com.maghfira_m.mymoviecatalogue.core.utils.AppExecutors
 import com.maghfira_m.mymoviecatalogue.core.utils.Config
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -46,6 +45,5 @@ val networkModule = module {
 val repositoryModule = module {
     single { LocalDataSource(get()) }
     single { RemoteDataSource(get()) }
-    factory { AppExecutors() }
-    single<IMovieRepository> { MovieRepository(get(), get(), get()) }
+    single<IMovieRepository> { MovieRepository(get(), get()) }
 }
